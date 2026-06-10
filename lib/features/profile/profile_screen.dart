@@ -111,7 +111,7 @@ class ProfileScreen extends ConsumerWidget {
           ),
           _MenuItem(
             icon: Icons.history_outlined,
-            color: const Color(0xFF3B82F6),
+            color: const kBlue,
             label: 'Booking History',
             subtitle: 'Past rides and bookings',
             onTap: () {},

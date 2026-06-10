@@ -121,7 +121,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                   ),
                   const Divider(
                     height: 1,
-                    color: Color(0x18C48D38),
+                    color: kGoldTint,
                     indent: 18,
                     endIndent: 18,
                   ),
@@ -818,13 +818,13 @@ class _QuickActionsGrid extends StatelessWidget {
         _QuickActionTile(
           icon: Icons.hotel_outlined,
           label: 'Stay',
-          color: Color(0xFF3B82F6),
+          color: kBlue,
           routeName: 'explore',
         ),
         _QuickActionTile(
           icon: Icons.event_outlined,
           label: 'Events',
-          color: Color(0xFF22C55E),
+          color: kSuccess,
           routeName: 'events',
         ),
       ],
@@ -1067,10 +1067,10 @@ class _CityTourCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const Color(0xFF3B82F6).withValues(alpha: 0.08),
+          color: const kBlue.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-              color: const Color(0xFF3B82F6).withValues(alpha: 0.25)),
+              color: const kBlue.withValues(alpha: 0.25)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1078,7 +1078,7 @@ class _CityTourCard extends StatelessWidget {
             Row(
               children: [
                 const Icon(Icons.explore_outlined,
-                    color: Color(0xFF60A5FA), size: 20),
+                    color: kBlue, size: 20),
                 const SizedBox(width: 8),
                 Text(
                   'Guided City Tour',
@@ -1091,7 +1091,7 @@ class _CityTourCard extends StatelessWidget {
                 const Text(
                   '8 stops',
                   style: TextStyle(
-                      color: Color(0xFF60A5FA),
+                      color: kBlue,
                       fontSize: 12,
                       fontWeight: FontWeight.w600),
                 ),
@@ -1124,15 +1124,15 @@ class _StopChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: const Color(0xFF3B82F6).withValues(alpha: 0.14),
+        color: const kBlue.withValues(alpha: 0.14),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-            color: const Color(0xFF3B82F6).withValues(alpha: 0.3)),
+            color: const kBlue.withValues(alpha: 0.3)),
       ),
       child: Text(
         label,
         style: const TextStyle(
-          color: Color(0xFF93C5FD),
+          color: kBlue,
           fontSize: 11,
           fontWeight: FontWeight.w600,
         ),

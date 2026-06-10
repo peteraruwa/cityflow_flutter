@@ -11,7 +11,7 @@ import 'models/business.dart';
 
 const _tabDefs = [
   _TabDef(label: 'Restaurants', color: kGold),
-  _TabDef(label: 'Hotels & Guest Houses', color: Color(0xFF3B82F6)),
+  _TabDef(label: 'Hotels & Guest Houses', color: kBlue),
   _TabDef(label: 'Banks & ATMs', color: kSuccess),
   _TabDef(label: 'Shops & Services', color: kPurpleLight),
 ];

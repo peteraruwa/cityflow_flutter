@@ -48,7 +48,7 @@ class _SosButtonState extends State<SosButton>
           width: 120,
           height: 120,
           decoration: BoxDecoration(
-            color: Colors.red.shade700,
+            color: kDanger,
             shape: BoxShape.circle,
             border: Border.all(color: kGold, width: 3),
           ),

@@ -170,7 +170,7 @@ class _PlaceCard extends StatelessWidget {
       case 'church':
         return kPurple;
       case 'accommodation':
-        return const Color(0xFF3B82F6);
+        return const kBlue;
       case 'medical':
         return kDanger;
       case 'dining':

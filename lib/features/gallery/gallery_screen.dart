@@ -126,10 +126,10 @@ const _galleryAuthors = [
 
 const _gradients = [
   <Color>[kPurple, kPurpleDark],
-  <Color>[kGold, Color(0xFFA07020)],
-  <Color>[Color(0xFF3B82F6), Color(0xFF1D4ED8)],
-  <Color>[kSuccess, Color(0xFF166534)],
-  <Color>[kDanger, Color(0xFF991B1B)],
+  <Color>[kGold, kGoldDark],
+  <Color>[kBlue, kBlue],
+  <Color>[kSuccess, kSuccessDark],
+  <Color>[kDanger, kDangerDark],
 ];
 
 class _GalleryCard extends StatelessWidget {
