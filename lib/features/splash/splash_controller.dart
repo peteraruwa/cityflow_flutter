@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final splashControllerProvider = Provider.autoDispose<SplashController>((ref) {
+final splashControllerProvider = Provider<SplashController>((ref) {
   final controller = SplashController();
   ref.onDispose(controller.dispose);
   return controller;

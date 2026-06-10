@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
 
-import 'colors.dart';
 import 'constants.dart';
 import 'theme.dart';
 
@@ -14,30 +12,13 @@ class CityFlowApp extends StatelessWidget {
 
   final GoRouter routerConfig;
 
-  Future<void> _loadEnv() {
-    if (dotenv.env.isNotEmpty) {
-      return Future<void>.value();
-    }
-
-    return dotenv.load(fileName: 'assets/.env');
-  }
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<void>(
-      future: _loadEnv(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState != ConnectionState.done) {
-          return const SizedBox.shrink();
-        }
-
-        return MaterialApp.router(
-          title: kAppName,
-          debugShowCheckedModeBanner: false,
-          theme: buildCityFlowTheme(),
-          routerConfig: routerConfig,
-        );
-      },
+    return MaterialApp.router(
+      title: kAppName,
+      debugShowCheckedModeBanner: false,
+      theme: buildCityFlowTheme(),
+      routerConfig: routerConfig,
     );
   }
 }
