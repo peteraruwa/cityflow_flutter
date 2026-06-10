@@ -327,7 +327,7 @@ Loaded from `.env` at project root via `flutter_dotenv`.
 
 ```
 # .env
-ANTHROPIC_API_KEY=your_key_here
+GEMINI_API_KEY=your_key_here
 GOOGLE_MAPS_API_KEY=your_key_here
 ```
 
@@ -337,8 +337,8 @@ If `.env` is missing, log a clear error and fail gracefully — no crash.
 
 ## AI Guide Feature
 
-- **Endpoint:** `https://api.anthropic.com/v1/messages`
-- **Model:** `claude-sonnet-4-20250514`
+- **Endpoint:** `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`
+- **Model:** `gemini-2.5-flash`
 - **Max tokens:** `1000`
 - **System prompt:**
 
@@ -439,7 +439,7 @@ flutter build ios         # iOS release build
 - All map previews in detail screens are non-interactive (fixed camera)
 - `city_ride` uses mock data only — no real ride backend
 - Gallery images use `picsum.photos` placeholders until real Firebase Storage URLs are provided
-- AI Guide requires `ANTHROPIC_API_KEY` in `assets/.env` to function
+- AI Guide requires `GEMINI_API_KEY` in `assets/.env` to function
 
 ---
 

@@ -27,6 +27,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   @override
   void initState() {
     super.initState();
+    print('🔵 SplashScreen: initState called');
+
     _entryController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 650),
@@ -37,20 +39,71 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     )..repeat();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      print('🔵 SplashScreen: postFrameCallback - starting animations');
       _entryController.forward();
       _fadeTimer = Timer(const Duration(milliseconds: 2450), () {
+        print('🔵 SplashScreen: fadeTimer - setting fade out');
         if (mounted) {
           setState(() => _isFadingOut = true);
         }
       });
-      ref.read(splashControllerProvider).start(() {
-        if (mounted) context.goNamed('onboarding');
+
+      print('🔵 SplashScreen: Getting splashControllerProvider');
+      final controller = ref.read(splashControllerProvider);
+      print('🔵 SplashScreen: Controller obtained = $controller');
+
+      print('🔵 SplashScreen: Calling controller.start()');
+      controller.start(() {
+        print('🔵 SplashScreen: Navigation callback - about to navigate');
+
+        // Check if mounted and router is available
+        if (!mounted) {
+          print('🔵 SplashScreen: ERROR - widget not mounted');
+          return;
+        }
+
+        // Get router state
+        final router = GoRouter.of(context);
+        print('🔵 SplashScreen: Current router instance: $router');
+
+        // Route introspection isn't available on this GoRouter version.
+        print(
+            '🔵 SplashScreen: Route listing skipped due to GoRouter API compatibility');
+
+        // Try different navigation methods
+        print('🔵 SplashScreen: Trying context.goNamed("onboarding")');
+        try {
+          router.goNamed('onboarding');
+          print('🔵 SplashScreen: goNamed successful');
+        } catch (e) {
+          print('🔵 SplashScreen: goNamed failed with error: $e');
+
+          // Fallback to path navigation
+          print('🔵 SplashScreen: Trying context.go("/onboarding")');
+          try {
+            router.go('/onboarding');
+            print('🔵 SplashScreen: go successful');
+          } catch (e2) {
+            print('🔵 SplashScreen: go failed with error: $e2');
+
+            // Final fallback - push
+            print('🔵 SplashScreen: Trying context.push("/onboarding")');
+            try {
+              router.push('/onboarding');
+              print('🔵 SplashScreen: push successful');
+            } catch (e3) {
+              print('🔵 SplashScreen: All navigation attempts failed: $e3');
+            }
+          }
+        }
       });
+      print('🔵 SplashScreen: controller.start() call completed');
     });
   }
 
   @override
   void dispose() {
+    print('🔵 SplashScreen: dispose called');
     _fadeTimer?.cancel();
     _entryController.dispose();
     _dotsController.dispose();
@@ -59,6 +112,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    print('🔵 SplashScreen: build called, isFadingOut=$_isFadingOut');
+
     return Scaffold(
       backgroundColor: kBackground,
       body: AnimatedOpacity(

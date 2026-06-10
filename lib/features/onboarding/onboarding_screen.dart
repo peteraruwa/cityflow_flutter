@@ -12,9 +12,14 @@ class OnboardingScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print('🟢 OnboardingScreen: BUILDING - screen is rendering'); // DEBUG
+
     final state = ref.watch(onboardingControllerProvider);
     final copy = _localizedCopy[state.languageCode] ?? _localizedCopy['en']!;
     final step = state.step.clamp(0, 3);
+
+    print(
+        '🟢 OnboardingScreen: step=$step, language=${state.languageCode}'); // DEBUG
 
     return Scaffold(
       backgroundColor: kBackground,
@@ -56,6 +61,8 @@ class _LanguageSelection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print('🟢 LanguageSelection: BUILDING'); // DEBUG
+
     return Padding(
       key: const ValueKey('language'),
       padding: const EdgeInsets.symmetric(horizontal: 26),
@@ -94,6 +101,8 @@ class _LanguageSelection extends ConsumerWidget {
                           language: language,
                           isActive: state.languageCode == language.code,
                           onTap: () {
+                            print(
+                                '🟢 LanguageSelection: Selected ${language.code}'); // DEBUG
                             ref
                                 .read(onboardingControllerProvider.notifier)
                                 .setLanguage(language.code);
@@ -112,6 +121,8 @@ class _LanguageSelection extends ConsumerWidget {
               label: copy.continueLabel,
               icon: Icons.arrow_forward,
               onPressed: () {
+                print(
+                    '🟢 LanguageSelection: Continue button pressed, moving to step 1'); // DEBUG
                 ref.read(onboardingControllerProvider.notifier).setStep(1);
               },
             ),
@@ -133,6 +144,8 @@ class _FeatureSlides extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print('🟢 FeatureSlides: BUILDING step=$step'); // DEBUG
+
     final slide = copy.slides[step - 1];
     final visual = _slideVisuals[step - 1];
 
@@ -146,7 +159,11 @@ class _FeatureSlides extends ConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: 16),
               child: TextButton(
-                onPressed: () => context.goNamed('login'),
+                onPressed: () {
+                  print(
+                      '🟢 FeatureSlides: Skip button pressed, navigating to login'); // DEBUG
+                  context.goNamed('login');
+                },
                 child: Text(
                   copy.skip,
                   style: const TextStyle(
@@ -207,6 +224,8 @@ class _FeatureSlides extends ConsumerWidget {
                     (index) => _StepDot(
                       isActive: step == index + 1,
                       onTap: () {
+                        print(
+                            '🟢 FeatureSlides: Dot tapped, moving to step ${index + 1}'); // DEBUG
                         ref
                             .read(onboardingControllerProvider.notifier)
                             .setStep(index + 1);
@@ -219,13 +238,17 @@ class _FeatureSlides extends ConsumerWidget {
                   label: step < 3 ? copy.next : copy.start,
                   icon: Icons.arrow_forward,
                   onPressed: () {
+                    print(
+                        '🟢 FeatureSlides: Button pressed, step=$step'); // DEBUG
                     if (step < 3) {
+                      print('🟢 FeatureSlides: Moving to next slide'); // DEBUG
                       ref
                           .read(onboardingControllerProvider.notifier)
                           .nextStep();
                       return;
                     }
-
+                    print(
+                        '🟢 FeatureSlides: Navigating to login screen'); // DEBUG
                     context.goNamed('login');
                   },
                 ),
