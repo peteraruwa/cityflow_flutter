@@ -13,10 +13,12 @@ class HomeData {
   const HomeData({
     required this.places,
     required this.events,
+    required this.feed,
   });
 
   final List<Place> places;
   final List<Event> events;
+  final Map<String, dynamic> feed;
 }
 
 class HomeController extends AsyncNotifier<HomeData> {
@@ -24,6 +26,7 @@ class HomeController extends AsyncNotifier<HomeData> {
   Future<HomeData> build() async {
     final placesJson = await rootBundle.loadString('assets/data/places.json');
     final eventsJson = await rootBundle.loadString('assets/data/events.json');
+    final feedJson = await rootBundle.loadString('assets/data/home_feed.json');
 
     final places = (json.decode(placesJson) as List<dynamic>)
         .map((item) => Place.fromJson(item as Map<String, dynamic>))
@@ -35,6 +38,7 @@ class HomeController extends AsyncNotifier<HomeData> {
     return HomeData(
       places: places,
       events: events,
+      feed: json.decode(feedJson) as Map<String, dynamic>,
     );
   }
 }

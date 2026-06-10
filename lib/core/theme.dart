@@ -6,6 +6,7 @@ ThemeData buildCityFlowTheme() {
   return ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
+    fontFamily: 'Sora',
     primaryColor: kPurple,
     scaffoldBackgroundColor: kBackground,
     colorScheme: const ColorScheme.dark(

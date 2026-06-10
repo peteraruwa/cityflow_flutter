@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 const kBackground = Color(0xFF08011A);
+const kBackgroundOuter = Color(0xFF07010F);
+const kDeepInk = Color(0xFF0A0218);
+const kBlack = Color(0xFF000000);
+const kWhite = Color(0xFFFFFFFF);
 const kPurple = Color(0xFF7128CE);
 const kPurpleDark = Color(0xFF5A18A8);
 const kPurpleLight = Color(0xFF8B5CF6);
+const kPurpleSoft = Color(0xFF9458E0);
 const kGold = Color(0xFFC48D38);
+const kGoldDark = Color(0xFFA87425);
 const kCream = Color(0xFFEBE3D6);
 const kSurface = Color(0x0AFFFFFF);
 const kSurfaceHigh = Color(0x12FFFFFF);
@@ -13,4 +19,10 @@ const kBorderHigh = Color(0x24FFFFFF);
 const kMutedText = Color(0xFF8C7DA0);
 const kDimText = Color(0xFF504460);
 const kDanger = Color(0xFFD44F4F);
+const kDangerLight = Color(0xFFF06565);
 const kSuccess = Color(0xFF3DAA6A);
+const kBlue = Color(0xFF2A7FAB);
+const kLeaf = Color(0xFF4A8A5A);
+const kBrown = Color(0xFF9B5E3A);
+const kSlate = Color(0xFF6A6880);
+const kChurchPurple = Color(0xFF6B35C0);

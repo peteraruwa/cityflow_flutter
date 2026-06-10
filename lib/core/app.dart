@@ -57,58 +57,9 @@ class CityFlowShell extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackground,
       body: child,
-      bottomNavigationBar: DecoratedBox(
-        decoration: BoxDecoration(
-          color: kBackground.withValues(alpha: 0.94),
-          border: const Border(top: BorderSide(color: kBorder)),
-        ),
-        child: SafeArea(
-          top: false,
-          child: Theme(
-            data: Theme.of(context).copyWith(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-            ),
-            child: BottomNavigationBar(
-              currentIndex: _tabIndexForLocation(location),
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.transparent,
-              selectedItemColor: kGold,
-              unselectedItemColor: kMutedText,
-              elevation: 0,
-              selectedFontSize: 10,
-              unselectedFontSize: 10,
-              onTap: (index) => context.goNamed(_tabNameForIndex(index)),
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home_outlined),
-                  activeIcon: Icon(Icons.home),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.directions_car_outlined),
-                  activeIcon: Icon(Icons.directions_car),
-                  label: 'CityRide',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.explore_outlined),
-                  activeIcon: Icon(Icons.explore),
-                  label: 'Explore',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.inventory_2_outlined),
-                  activeIcon: Icon(Icons.inventory_2),
-                  label: 'Lost & Fnd',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.bolt_outlined),
-                  activeIcon: Icon(Icons.bolt),
-                  label: 'More',
-                ),
-              ],
-            ),
-          ),
-        ),
+      bottomNavigationBar: _CityFlowBottomNav(
+        currentIndex: _tabIndexForLocation(location),
+        onTap: (index) => context.goNamed(_tabNameForIndex(index)),
       ),
     );
   }
@@ -131,3 +82,91 @@ class CityFlowShell extends StatelessWidget {
     };
   }
 }
+
+class _CityFlowBottomNav extends StatelessWidget {
+  const _CityFlowBottomNav({
+    required this.currentIndex,
+    required this.onTap,
+  });
+
+  final int currentIndex;
+  final ValueChanged<int> onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: kBackgroundOuter.withValues(alpha: 0.92),
+        border: const Border(top: BorderSide(color: kBorder)),
+      ),
+      child: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(2, 10, 2, 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(_navItems.length, (index) {
+              final item = _navItems[index];
+              final active = index == currentIndex;
+              return InkWell(
+                borderRadius: BorderRadius.circular(12),
+                onTap: () => onTap(index),
+                child: Opacity(
+                  opacity: active ? 1 : 0.38,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 6, vertical: 5),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          item.icon,
+                          size: 20,
+                          color: active ? kGold : kCream,
+                        ),
+                        const SizedBox(height: 3),
+                        Text(
+                          item.label,
+                          style: TextStyle(
+                            color: active ? kGold : kMutedText,
+                            fontSize: 9,
+                            fontWeight:
+                                active ? FontWeight.w600 : FontWeight.w400,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Container(
+                          width: 3,
+                          height: 3,
+                          decoration: BoxDecoration(
+                            color: active ? kGold : kBackgroundOuter,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _NavItem {
+  const _NavItem(this.icon, this.label);
+
+  final IconData icon;
+  final String label;
+}
+
+const _navItems = [
+  _NavItem(Icons.home_outlined, 'Home'),
+  _NavItem(Icons.directions_car_outlined, 'CityRide'),
+  _NavItem(Icons.explore_outlined, 'Explore'),
+  _NavItem(Icons.inventory_2_outlined, 'Lost & Fnd'),
+  _NavItem(Icons.bolt_outlined, 'More'),
+];

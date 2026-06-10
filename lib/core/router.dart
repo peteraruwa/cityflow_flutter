@@ -29,7 +29,6 @@ import '../features/settings/settings_screen.dart';
 import '../features/splash/splash_screen.dart';
 import 'app.dart';
 import 'colors.dart';
-import 'constants.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -39,7 +38,7 @@ final appRouter = GoRouter(
   initialLocation: '/splash',
   debugLogDiagnostics: true, // ADD THIS - enables GoRouter debug logging
   redirect: (context, state) {
-    print('🔄 ROUTER REDIRECT: ${state.uri.path}'); // DEBUG
+    debugPrint('🔄 ROUTER REDIRECT: ${state.uri.path}'); // DEBUG
     return null;
   },
   routes: [
@@ -47,7 +46,7 @@ final appRouter = GoRouter(
       name: 'splash',
       path: '/splash',
       builder: (_, __) {
-        print('📍 ROUTER: Building SplashScreen');
+        debugPrint('📍 ROUTER: Building SplashScreen');
         return const SplashScreen();
       },
     ),
@@ -55,7 +54,7 @@ final appRouter = GoRouter(
       name: 'onboarding',
       path: '/onboarding',
       builder: (_, __) {
-        print('📍 ROUTER: Building OnboardingScreen');
+        debugPrint('📍 ROUTER: Building OnboardingScreen');
         return const OnboardingScreen();
       },
     ),
@@ -63,7 +62,7 @@ final appRouter = GoRouter(
       name: 'login',
       path: '/login',
       builder: (_, __) {
-        print('📍 ROUTER: Building LoginScreen');
+        debugPrint('📍 ROUTER: Building LoginScreen');
         return const LoginScreen();
       },
     ),
@@ -71,7 +70,7 @@ final appRouter = GoRouter(
       name: 'map',
       path: '/map',
       builder: (_, __) {
-        print('📍 ROUTER: Building MapScreen');
+        debugPrint('📍 ROUTER: Building MapScreen');
         return const MapScreen();
       },
     ),
@@ -79,7 +78,7 @@ final appRouter = GoRouter(
       name: 'placeDetails',
       path: '/map/place/:id',
       builder: (_, state) {
-        print(
+        debugPrint(
             '📍 ROUTER: Building PlaceDetailsScreen for id=${state.pathParameters['id']}');
         return PlaceDetailsScreen(
           id: state.pathParameters['id'] ?? '',
@@ -90,7 +89,7 @@ final appRouter = GoRouter(
       name: 'category',
       path: '/explore/:category',
       builder: (_, state) {
-        print(
+        debugPrint(
             '📍 ROUTER: Building CategoryScreen for category=${state.pathParameters['category']}');
         return CategoryScreen(
           category: state.pathParameters['category'] ?? '',
@@ -101,7 +100,7 @@ final appRouter = GoRouter(
       name: 'churches',
       path: '/churches',
       builder: (_, __) {
-        print('📍 ROUTER: Building ChurchesScreen');
+        debugPrint('📍 ROUTER: Building ChurchesScreen');
         return const ChurchesScreen();
       },
     ),
@@ -109,7 +108,7 @@ final appRouter = GoRouter(
       name: 'churchDetails',
       path: '/churches/:id',
       builder: (_, state) {
-        print(
+        debugPrint(
             '📍 ROUTER: Building ChurchDetailsScreen for id=${state.pathParameters['id']}');
         return ChurchDetailsScreen(
           id: state.pathParameters['id'] ?? '',
@@ -120,7 +119,7 @@ final appRouter = GoRouter(
       name: 'events',
       path: '/events',
       builder: (_, __) {
-        print('📍 ROUTER: Building EventsScreen');
+        debugPrint('📍 ROUTER: Building EventsScreen');
         return const EventsScreen();
       },
     ),
@@ -128,7 +127,7 @@ final appRouter = GoRouter(
       name: 'eventDetails',
       path: '/events/:id',
       builder: (_, state) {
-        print(
+        debugPrint(
             '📍 ROUTER: Building EventDetailsScreen for id=${state.pathParameters['id']}');
         return EventDetailsScreen(
           id: state.pathParameters['id'] ?? '',
@@ -139,7 +138,7 @@ final appRouter = GoRouter(
       name: 'gallery',
       path: '/gallery',
       builder: (_, __) {
-        print('📍 ROUTER: Building GalleryScreen');
+        debugPrint('📍 ROUTER: Building GalleryScreen');
         return const GalleryScreen();
       },
     ),
@@ -147,7 +146,7 @@ final appRouter = GoRouter(
       name: 'directory',
       path: '/directory',
       builder: (_, __) {
-        print('📍 ROUTER: Building BusinessDirectoryScreen');
+        debugPrint('📍 ROUTER: Building BusinessDirectoryScreen');
         return const BusinessDirectoryScreen();
       },
     ),
@@ -155,7 +154,7 @@ final appRouter = GoRouter(
       name: 'businessDetails',
       path: '/directory/:id',
       builder: (_, state) {
-        print(
+        debugPrint(
             '📍 ROUTER: Building BusinessDetailsScreen for id=${state.pathParameters['id']}');
         return BusinessDetailsScreen(
           id: state.pathParameters['id'] ?? '',
@@ -166,7 +165,7 @@ final appRouter = GoRouter(
       name: 'requestRide',
       path: '/city-ride/request',
       builder: (_, __) {
-        print('📍 ROUTER: Building RequestRideScreen');
+        debugPrint('📍 ROUTER: Building RequestRideScreen');
         return const RequestRideScreen();
       },
     ),
@@ -174,7 +173,7 @@ final appRouter = GoRouter(
       name: 'emergency',
       path: '/emergency',
       builder: (_, __) {
-        print('📍 ROUTER: Building EmergencyScreen');
+        debugPrint('📍 ROUTER: Building EmergencyScreen');
         return const EmergencyScreen();
       },
     ),
@@ -182,7 +181,7 @@ final appRouter = GoRouter(
       name: 'reportItem',
       path: '/lost-and-found/report',
       builder: (_, __) {
-        print('📍 ROUTER: Building ReportItemScreen');
+        debugPrint('📍 ROUTER: Building ReportItemScreen');
         return const ReportItemScreen();
       },
     ),
@@ -190,7 +189,7 @@ final appRouter = GoRouter(
       name: 'itemDetails',
       path: '/lost-and-found/:id',
       builder: (_, state) {
-        print(
+        debugPrint(
             '📍 ROUTER: Building ItemDetailsScreen for id=${state.pathParameters['id']}');
         return ItemDetailsScreen(
           id: state.pathParameters['id'] ?? '',
@@ -201,7 +200,7 @@ final appRouter = GoRouter(
       name: 'aiGuide',
       path: '/ai-guide',
       builder: (_, __) {
-        print('📍 ROUTER: Building AiGuideScreen');
+        debugPrint('📍 ROUTER: Building AiGuideScreen');
         return const AiGuideScreen();
       },
     ),
@@ -209,7 +208,7 @@ final appRouter = GoRouter(
       name: 'editProfile',
       path: '/profile/edit',
       builder: (_, __) {
-        print('📍 ROUTER: Building EditProfileScreen');
+        debugPrint('📍 ROUTER: Building EditProfileScreen');
         return const EditProfileScreen();
       },
     ),
@@ -217,7 +216,7 @@ final appRouter = GoRouter(
       name: 'settings',
       path: '/settings',
       builder: (_, __) {
-        print('📍 ROUTER: Building SettingsScreen');
+        debugPrint('📍 ROUTER: Building SettingsScreen');
         return const SettingsScreen();
       },
     ),
@@ -225,14 +224,14 @@ final appRouter = GoRouter(
       name: 'privacyPolicy',
       path: '/settings/privacy',
       builder: (_, __) {
-        print('📍 ROUTER: Building PrivacyPolicyScreen');
+        debugPrint('📍 ROUTER: Building PrivacyPolicyScreen');
         return const PrivacyPolicyScreen();
       },
     ),
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
       builder: (context, state, child) {
-        print('📍 ROUTER: Building ShellRoute for location=${state.uri.path}');
+        debugPrint('📍 ROUTER: Building ShellRoute for location=${state.uri.path}');
         return CityFlowShell(
           location: state.uri.path,
           child: child,
@@ -243,7 +242,7 @@ final appRouter = GoRouter(
           name: 'home',
           path: '/home',
           builder: (_, __) {
-            print('📍 ROUTER: Building HomeScreen');
+            debugPrint('📍 ROUTER: Building HomeScreen');
             return const HomeScreen();
           },
         ),
@@ -251,7 +250,7 @@ final appRouter = GoRouter(
           name: 'cityRide',
           path: '/city-ride',
           builder: (_, __) {
-            print('📍 ROUTER: Building CityRideScreen');
+            debugPrint('📍 ROUTER: Building CityRideScreen');
             return const CityRideScreen();
           },
         ),
@@ -259,7 +258,7 @@ final appRouter = GoRouter(
           name: 'explore',
           path: '/explore',
           builder: (_, __) {
-            print('📍 ROUTER: Building ExploreScreen');
+            debugPrint('📍 ROUTER: Building ExploreScreen');
             return const ExploreScreen();
           },
         ),
@@ -267,7 +266,7 @@ final appRouter = GoRouter(
           name: 'lostAndFound',
           path: '/lost-and-found',
           builder: (_, __) {
-            print('📍 ROUTER: Building LostAndFoundScreen');
+            debugPrint('📍 ROUTER: Building LostAndFoundScreen');
             return const LostAndFoundScreen();
           },
         ),
@@ -275,16 +274,16 @@ final appRouter = GoRouter(
           name: 'profile',
           path: '/profile',
           builder: (_, __) {
-            print('📍 ROUTER: Building ProfileScreen');
+            debugPrint('📍 ROUTER: Building ProfileScreen');
             return const ProfileScreen();
           },
         ),
       ],
     ),
   ],
-  errorBuilder: (_, state) {
-    print('❌ ROUTER ERROR: ${state.error}');
-    print('❌ ROUTER ERROR location: ${state.uri.path}');
+  errorBuilder: (context, state) {
+    debugPrint('❌ ROUTER ERROR: ${state.error}');
+    debugPrint('❌ ROUTER ERROR location: ${state.uri.path}');
     return Scaffold(
       backgroundColor: kBackground,
       body: Center(
@@ -295,7 +294,8 @@ final appRouter = GoRouter(
             const SizedBox(height: 16),
             Text(
               'Navigation Error',
-              style: Theme.of(_).textTheme.titleMedium?.copyWith(color: kCream),
+              style:
+                  Theme.of(context).textTheme.titleMedium?.copyWith(color: kCream),
             ),
             const SizedBox(height: 8),
             Text(
@@ -304,8 +304,7 @@ final appRouter = GoRouter(
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () => _rootNavigatorKey.currentState
-                  ?.pushReplacementNamed('/splash'),
+              onPressed: () => context.goNamed('splash'),
               child: const Text('Go to Splash'),
             ),
           ],

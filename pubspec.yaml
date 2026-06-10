@@ -34,5 +34,13 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/fonts/
+    - assets/data/home_feed.json
     - assets/data/
     - assets/.env
+  fonts:
+    - family: Sora
+      fonts:
+        - asset: assets/fonts/Sora-Variable.ttf
+    - family: Cinzel
+      fonts:
+        - asset: assets/fonts/Cinzel-Variable.ttf

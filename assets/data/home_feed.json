@@ -1,0 +1,106 @@
+{
+  "ticker": [
+    "Sunday Victory Service - live now at the Main Auditorium",
+    "Main Camp Road closed 10AM-2PM - use Alternative Route 2",
+    "Monthly Thanksgiving Service - Saturday, 6:00 PM",
+    "Holy Ghost Service - Friday, 6:00 PM",
+    "Lost & Found: black wallet recovered at Gate B - contact security"
+  ],
+  "quotes": [
+    {
+      "text": "Thanksgiving is the glue that helps to firmly attach your blessings to you.",
+      "by": "Pastor E.A. Adeboye"
+    },
+    {
+      "text": "The first and biggest victory of all is victory over your own self.",
+      "by": "Pastor E.A. Adeboye"
+    },
+    {
+      "text": "Brethren, this is the time anybody will need grace more than ever before.",
+      "by": "Pastor (Mrs.) Folu Adeboye"
+    },
+    {
+      "text": "If you have been struggling with a problem, try praise.",
+      "by": "Pastor E.A. Adeboye"
+    },
+    {
+      "text": "When in trouble, praise and thank God.",
+      "by": "Pastor E.A. Adeboye"
+    }
+  ],
+  "events": [
+    {
+      "day": "SUN",
+      "date": "15",
+      "title": "Sunday Victory Service",
+      "venue": "Main Auditorium",
+      "time": "8:00 AM",
+      "tag": "Worship",
+      "color": "purple",
+      "live": true
+    },
+    {
+      "day": "FRI",
+      "date": "06",
+      "title": "Holy Ghost Service",
+      "venue": "Main Auditorium",
+      "time": "6:00 PM",
+      "tag": "Special",
+      "color": "gold",
+      "live": false
+    },
+    {
+      "day": "SAT",
+      "date": "21",
+      "title": "Youth Convention",
+      "venue": "Youth Centre",
+      "time": "4:00 PM",
+      "tag": "Youth",
+      "color": "blue",
+      "live": false
+    },
+    {
+      "day": "WED",
+      "date": "18",
+      "title": "Mass Choir Rehearsal",
+      "venue": "Music Hall",
+      "time": "5:30 PM",
+      "tag": "Music",
+      "color": "leaf",
+      "live": false
+    }
+  ],
+  "churches": [
+    {
+      "name": "City of God Cathedral",
+      "dist": "0.2km",
+      "addr": "Central Plaza, Redemption City",
+      "service": "8:00 AM - Sun",
+      "color": "purple"
+    },
+    {
+      "name": "Faith Chapel - Zone 3",
+      "dist": "0.6km",
+      "addr": "Block C, Residential Quarter",
+      "service": "9:00 AM - Sun",
+      "color": "blue"
+    }
+  ],
+  "gallery": {
+    "title": "Sunrise at Prayer Mountain",
+    "by": "@grace.o"
+  },
+  "fact": {
+    "icon": "city",
+    "indexLabel": "FACT 1 OF 8",
+    "text": "Redemption City was officially commissioned in 1999 and now hosts over 1 million visitors annually during major conventions."
+  },
+  "devotional": {
+    "date": "Today",
+    "topic": "The Power of Praise",
+    "text": "Praise is the highest form of prayer. When you praise God in the midst of your circumstances, you invite His presence and power into your situation...",
+    "verse": "Let everything that has breath praise the Lord.",
+    "ref": "Psalm 150:6",
+    "reading": "Psalm 150"
+  }
+}
