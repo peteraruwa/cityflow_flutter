@@ -1067,10 +1067,10 @@ class _CityTourCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const kBlue.withValues(alpha: 0.08),
+          color: kBlue.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-              color: const kBlue.withValues(alpha: 0.25)),
+              color: kBlue.withValues(alpha: 0.25)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1124,10 +1124,10 @@ class _StopChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: const kBlue.withValues(alpha: 0.14),
+        color: kBlue.withValues(alpha: 0.14),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-            color: const kBlue.withValues(alpha: 0.3)),
+            color: kBlue.withValues(alpha: 0.3)),
       ),
       child: Text(
         label,
