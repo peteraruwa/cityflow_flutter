@@ -1,0 +1,57 @@
+[
+  {
+    "id": "lost_001",
+    "title": "Black Wallet",
+    "description": "Black leather wallet lost near Gate B.",
+    "category": "Wallet",
+    "dateLost": "2026-06-01",
+    "locationFound": "Main Auditorium Gate B",
+    "imageUrl": "",
+    "status": "lost",
+    "contactPhone": "08000000001"
+  },
+  {
+    "id": "lost_002",
+    "title": "Blue Backpack",
+    "description": "Blue backpack containing documents.",
+    "category": "Bag",
+    "dateLost": "2026-06-03",
+    "locationFound": "Car Park",
+    "imageUrl": "",
+    "status": "lost",
+    "contactPhone": "08000000002"
+  },
+  {
+    "id": "lost_003",
+    "title": "Phone Charger",
+    "description": "White USB-C phone charger.",
+    "category": "Electronics",
+    "dateLost": "2026-06-04",
+    "locationFound": "Guest House A",
+    "imageUrl": "",
+    "status": "lost",
+    "contactPhone": "08000000003"
+  },
+  {
+    "id": "found_001",
+    "title": "Bible",
+    "description": "Small brown Bible found after service.",
+    "category": "Book",
+    "dateLost": "2026-06-05",
+    "locationFound": "Old Auditorium",
+    "imageUrl": "",
+    "status": "found",
+    "contactPhone": "08000000004"
+  },
+  {
+    "id": "found_002",
+    "title": "Umbrella",
+    "description": "Black umbrella found near the restaurant.",
+    "category": "Personal Item",
+    "dateLost": "2026-06-06",
+    "locationFound": "Camp Restaurant",
+    "imageUrl": "",
+    "status": "found",
+    "contactPhone": "08000000005"
+  }
+]

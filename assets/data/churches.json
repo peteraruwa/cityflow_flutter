@@ -1,0 +1,155 @@
+[
+  {
+    "id": "church_001",
+    "name": "NEW ARENA Auditorium",
+    "description": "New generation worship arena",
+    "subcategory": "auditorium",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_002",
+    "name": "Old Auditorium",
+    "description": "Historic main worship auditorium",
+    "subcategory": "auditorium",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_003",
+    "name": "Youth Centre",
+    "description": "Youth worship and convention centre",
+    "subcategory": "youth",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_004",
+    "name": "Children's Church",
+    "description": "Children's worship centre",
+    "subcategory": "children",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_005",
+    "name": "Faith Chapel",
+    "description": "Chapel for worship and prayer meetings",
+    "subcategory": "chapel",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_006",
+    "name": "Chapel of Mercy",
+    "description": "Worship chapel in Redemption City",
+    "subcategory": "chapel",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_007",
+    "name": "House of Praise",
+    "description": "Praise and worship centre",
+    "subcategory": "worship_center",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_008",
+    "name": "Throne of Grace",
+    "description": "Parish worship centre",
+    "subcategory": "parish",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_009",
+    "name": "Victory Sanctuary",
+    "description": "Parish worship centre",
+    "subcategory": "parish",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_010",
+    "name": "Open Heavens Cathedral",
+    "description": "Cathedral worship centre",
+    "subcategory": "cathedral",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_011",
+    "name": "Hosanna Chapel",
+    "description": "Chapel for services and prayer",
+    "subcategory": "chapel",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_012",
+    "name": "Province 1 Church",
+    "description": "RCCG provincial worship centre",
+    "subcategory": "province",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_013",
+    "name": "Province 2 Church",
+    "description": "RCCG provincial worship centre",
+    "subcategory": "province",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_014",
+    "name": "Province 3 Church",
+    "description": "RCCG provincial worship centre",
+    "subcategory": "province",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_015",
+    "name": "Prayer Foyer",
+    "description": "Prayer and counselling area",
+    "subcategory": "prayer",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_016",
+    "name": "Redemption Pavilion",
+    "description": "Worship pavilion and gathering space",
+    "subcategory": "pavilion",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  },
+  {
+    "id": "church_017",
+    "name": "Mount Zion Prayer Hall",
+    "description": "Prayer hall for spiritual retreats",
+    "subcategory": "prayer_hall",
+    "lat": 6.4531,
+    "lng": 3.3958,
+    "phone": ""
+  }
+]

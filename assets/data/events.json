@@ -1,0 +1,47 @@
+[
+  {
+    "id": "event_001",
+    "title": "Sunday Service",
+    "description": "Weekly Sunday worship service",
+    "date": "2025-07-06",
+    "time": "08:00",
+    "venue": "New Arena Auditorium",
+    "category": "Services"
+  },
+  {
+    "id": "event_002",
+    "title": "Digging Deep",
+    "description": "Weekly Bible study and teaching service",
+    "date": "2025-07-08",
+    "time": "18:00",
+    "venue": "Faith Chapel",
+    "category": "Bible Study"
+  },
+  {
+    "id": "event_003",
+    "title": "Faith Clinic",
+    "description": "Weekly prayer and faith service",
+    "date": "2025-07-10",
+    "time": "18:00",
+    "venue": "Old Auditorium",
+    "category": "Prayer"
+  },
+  {
+    "id": "event_004",
+    "title": "Holy Ghost Service",
+    "description": "Monthly Holy Ghost service",
+    "date": "2025-07-11",
+    "time": "19:00",
+    "venue": "New Arena Auditorium",
+    "category": "Special Services"
+  },
+  {
+    "id": "event_005",
+    "title": "Thanksgiving Service",
+    "description": "Monthly thanksgiving and praise service",
+    "date": "2025-07-13",
+    "time": "08:00",
+    "venue": "New Arena Auditorium",
+    "category": "Services"
+  }
+]

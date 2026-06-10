@@ -1,0 +1,37 @@
+[
+  {
+    "id": "emg_001",
+    "name": "Redeemer's Health Village",
+    "role": "Hospital",
+    "phone": "07048006499",
+    "isPrimary": true
+  },
+  {
+    "id": "emg_002",
+    "name": "RCCG Maternity Centre",
+    "role": "Maternity Centre",
+    "phone": "09112926035",
+    "isPrimary": false
+  },
+  {
+    "id": "emg_003",
+    "name": "Security",
+    "role": "Security",
+    "phone": "",
+    "isPrimary": false
+  },
+  {
+    "id": "emg_004",
+    "name": "Fire Service",
+    "role": "Fire Service",
+    "phone": "",
+    "isPrimary": false
+  },
+  {
+    "id": "emg_005",
+    "name": "General Emergency",
+    "role": "Emergency",
+    "phone": "112",
+    "isPrimary": false
+  }
+]
