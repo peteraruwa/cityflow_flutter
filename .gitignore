@@ -17,3 +17,4 @@ ios/.symlinks/
 ios/Flutter/Flutter.framework
 ios/Flutter/Flutter.podspec
 macos/Flutter/GeneratedPluginRegistrant.swift
+.claude/worktrees/
