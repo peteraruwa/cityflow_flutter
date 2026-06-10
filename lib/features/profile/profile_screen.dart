@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/colors.dart';
-import '../../core/constants.dart';
 import '../../shared/widgets/app_screen.dart';
 import 'profile_controller.dart';
 
@@ -18,150 +17,204 @@ class ProfileScreen extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ScreenHeader(
-            title: 'More',
-            subtitle: 'Account, info and support',
-            trailing: IconButton.filled(
-              style: IconButton.styleFrom(
-                backgroundColor: kSurfaceHigh,
-                foregroundColor: kGold,
-              ),
-              onPressed: () => context.goNamed('editProfile'),
-              icon: const Icon(Icons.edit_outlined),
-            ),
-          ),
-          const SizedBox(height: 18),
-          PremiumCard(
-            child: Row(
+          const ScreenHeader(title: 'Profile'),
+          const SizedBox(height: 20),
+          // Avatar + info
+          Center(
+            child: Column(
               children: [
-                CircleAvatar(
-                  radius: 31,
-                  backgroundColor: kPurple.withValues(alpha: 0.24),
-                  backgroundImage: const AssetImage(kRedemptionCityLogoAsset),
-                  onBackgroundImageError: (_, __) {},
-                  child: const Icon(Icons.person, color: kCream),
-                ),
-                const SizedBox(width: 14),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        profile.name,
-                        style:
-                            Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  color: kCream,
-                                  fontWeight: FontWeight.w800,
-                                ),
-                      ),
-                      const SizedBox(height: 3),
-                      Text(
-                        profile.email,
-                        style: const TextStyle(color: kMutedText),
-                      ),
-                    ],
+                Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [kPurple, kPurpleDark],
+                    ),
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                        color: kPurpleLight.withValues(alpha: 0.4),
+                        width: 2),
                   ),
+                  child: Center(
+                    child: Text(
+                      _initials(profile.name),
+                      style: const TextStyle(
+                        color: kCream,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 26,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  profile.name,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: kCream,
+                        fontWeight: FontWeight.w800,
+                      ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  profile.email,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: kMutedText,
+                      ),
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.location_on_outlined,
+                        color: kGold, size: 14),
+                    const SizedBox(width: 3),
+                    Text(
+                      'Redemption City',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: kGold,
+                          ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
           const SizedBox(height: 22),
-          const _SectionTitle('Quick Contacts'),
-          _MoreTile(
-            icon: Icons.phone_in_talk_outlined,
-            color: kGold,
-            label: 'Emergency Contacts',
-            subtitle: 'Hospital, security and urgent help',
-            onTap: () => context.goNamed('emergency'),
+          // Stats row
+          PremiumCard(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const [
+                _StatItem(label: 'CityRides', value: '12'),
+                _Divider(),
+                _StatItem(label: 'Events', value: '8'),
+                _Divider(),
+                _StatItem(label: 'L&F Reports', value: '2'),
+              ],
+            ),
           ),
-          const SizedBox(height: 18),
-          const _SectionTitle('Account'),
-          _MoreTile(
-            icon: Icons.person_outline,
+          const SizedBox(height: 22),
+          // Menu items
+          _MenuItem(
+            icon: Icons.notifications_none,
             color: kPurpleLight,
-            label: 'Profile',
-            subtitle: 'Your account and saved history',
-            onTap: () => context.goNamed('editProfile'),
+            label: 'Notifications',
+            subtitle: 'Manage alerts and updates',
+            onTap: () {},
           ),
-          _MoreTile(
+          _MenuItem(
+            icon: Icons.inventory_2_outlined,
+            color: kGold,
+            label: 'My L&F Reports',
+            subtitle: 'Track your reports',
+            onTap: () => context.goNamed('lostAndFound'),
+          ),
+          _MenuItem(
+            icon: Icons.history_outlined,
+            color: const Color(0xFF3B82F6),
+            label: 'Booking History',
+            subtitle: 'Past rides and bookings',
+            onTap: () {},
+          ),
+          _MenuItem(
+            icon: Icons.help_outline,
+            color: kSuccess,
+            label: 'Help & Support',
+            subtitle: 'FAQs and contact',
+            onTap: () {},
+          ),
+          _MenuItem(
             icon: Icons.settings_outlined,
             color: kMutedText,
             label: 'Settings',
-            subtitle: 'Preferences and app options',
+            subtitle: 'App preferences',
             onTap: () => context.goNamed('settings'),
           ),
-          _MoreTile(
-            icon: Icons.notifications_none,
-            color: kGold,
-            label: 'Notifications',
-            subtitle: 'Alerts and updates',
-            onTap: () => _comingSoon(context, 'Notifications'),
-          ),
-          const SizedBox(height: 18),
-          const _SectionTitle('Discover'),
-          _MoreTile(
-            icon: Icons.church_outlined,
-            color: kPurple,
-            label: 'Churches',
-            subtitle: 'Worship centres and details',
-            onTap: () => context.goNamed('churches'),
-          ),
-          _MoreTile(
-            icon: Icons.storefront_outlined,
-            color: kGold,
-            label: 'Business Directory',
-            subtitle: 'Food, banks, shops and services',
-            onTap: () => context.goNamed('directory'),
-          ),
-          _MoreTile(
-            icon: Icons.photo_library_outlined,
-            color: kSuccess,
-            label: 'Gallery',
-            subtitle: 'Photos from around the city',
-            onTap: () => context.goNamed('gallery'),
-          ),
-          _MoreTile(
-            icon: Icons.smart_toy_outlined,
-            color: kPurpleLight,
-            label: 'AI Guide',
-            subtitle: 'Ask CityFlow Assistant',
-            onTap: () => context.goNamed('aiGuide'),
+          const SizedBox(height: 16),
+          // Sign out
+          InkWell(
+            borderRadius: BorderRadius.circular(14),
+            onTap: () => context.goNamed('login'),
+            child: Container(
+              width: double.infinity,
+              height: 50,
+              decoration: BoxDecoration(
+                color: kDanger.withValues(alpha: 0.08),
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(color: kDanger.withValues(alpha: 0.3)),
+              ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.logout, color: kDanger, size: 18),
+                  SizedBox(width: 8),
+                  Text(
+                    'Sign Out',
+                    style: TextStyle(
+                      color: kDanger,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
     );
   }
 
-  void _comingSoon(BuildContext context, String title) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$title coming soon')),
-    );
+  String _initials(String name) {
+    final parts = name.trim().split(' ');
+    if (parts.length >= 2) {
+      return '${parts[0][0]}${parts[1][0]}'.toUpperCase();
+    }
+    return name.isNotEmpty ? name[0].toUpperCase() : 'P';
   }
 }
 
-class _SectionTitle extends StatelessWidget {
-  const _SectionTitle(this.title);
-
-  final String title;
+class _StatItem extends StatelessWidget {
+  const _StatItem({required this.label, required this.value});
+  final String label;
+  final String value;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Text(
-        title.toUpperCase(),
-        style: Theme.of(context).textTheme.labelSmall?.copyWith(
-              color: kDimText,
-              fontWeight: FontWeight.w800,
-              letterSpacing: 1.2,
-            ),
-      ),
+    return Column(
+      children: [
+        Text(
+          value,
+          style: const TextStyle(
+            color: kCream,
+            fontWeight: FontWeight.w800,
+            fontSize: 20,
+          ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          label,
+          style: const TextStyle(color: kMutedText, fontSize: 12),
+        ),
+      ],
     );
   }
 }
 
-class _MoreTile extends StatelessWidget {
-  const _MoreTile({
+class _Divider extends StatelessWidget {
+  const _Divider();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 1,
+      height: 36,
+      color: kBorder,
+    );
+  }
+}
+
+class _MenuItem extends StatelessWidget {
+  const _MenuItem({
     required this.icon,
     required this.color,
     required this.label,
@@ -178,36 +231,42 @@ class _MoreTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 9),
+      padding: const EdgeInsets.only(bottom: 10),
       child: PremiumCard(
         onTap: onTap,
-        padding: const EdgeInsets.all(13),
+        padding: const EdgeInsets.all(14),
         child: Row(
           children: [
-            IconTile(icon: icon, color: color, size: 38),
-            const SizedBox(width: 13),
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.14),
+                borderRadius: BorderRadius.circular(11),
+              ),
+              child: Icon(icon, color: color, size: 20),
+            ),
+            const SizedBox(width: 14),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     label,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: kCream,
-                          fontWeight: FontWeight.w800,
-                        ),
+                    style: const TextStyle(
+                      color: kCream,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     subtitle,
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: kMutedText,
-                        ),
+                    style: const TextStyle(color: kMutedText, fontSize: 12),
                   ),
                 ],
               ),
             ),
-            const Icon(Icons.chevron_right, color: kDimText, size: 18),
+            const Icon(Icons.chevron_right, color: kDimText),
           ],
         ),
       ),
